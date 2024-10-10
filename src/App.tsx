@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 import Hello from './components/testComponent';
+import TodoList from './components/TodoList';
+import NewTodo from './components/NewTodo';
 
 const App: React.FC = () => {
   const [count, setCount] = useState(0);
@@ -22,6 +24,14 @@ const App: React.FC = () => {
      
   }
 
+  const AddTodo = (text: string) => {
+    console.log(text)
+  }
+  const todos = [
+    { id: 't1', text: 'Completar el curso' },
+    { id: 't2', text: 'Sacarme el carné' },
+    { id: 't3', text: 'Tirar la basura' },
+  ];
   return (
     <>
       <div>
@@ -50,6 +60,8 @@ const App: React.FC = () => {
         Click on the Vite and React logos to learn more
       </p>
       <Hello name={name} surname={surname} getPerson={getPerson} />
+      <NewTodo onAddTodo={AddTodo}/>
+      <TodoList items= {todos} />
     </>
   );
 };
