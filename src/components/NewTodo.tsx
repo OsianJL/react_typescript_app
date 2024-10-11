@@ -1,4 +1,5 @@
 import React, {useRef} from 'react';
+import {Form, FormField, Button } from 'semantic-ui-react'
 
 interface NewTodoProps {
     onAddTodo: (text: string) => void; 
@@ -12,13 +13,13 @@ const NewTodo: React.FC<NewTodoProps> = (props) => {
         props.onAddTodo(enteredText)
     }
   return(
-  <form onSubmit={submitHandler}>
-    <div>
+  <Form onSubmit={submitHandler}>
+    <FormField>
       <label htmlFor="todo-text">Title</label>
       <input type="text" id="todo-text" ref={inputRef}/>
-    </div>
-    <button type="submit">Add</button>
-  </form>
+    </FormField>
+    <Button type="submit">Add</Button>
+  </Form>
   );
 };
 
